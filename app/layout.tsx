@@ -3,13 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
-import Navbar from "./Navbar";
-
 const inter = Inter({ subsets: ["latin"] });
-
+import Navbar from "./Navbar";
+import AuthWrapper from "./api/lib/auth-wrapper";
 export const metadata: Metadata = {
-  title: "Issue tracker app",
-  description: "Issue tracker app tracks all issues assigned to techinition",
+  title: "Issue Tracker app",
+  description: "Issue tracker app tracks all the issue, assigned to technician",
 };
 
 export default function RootLayout({
@@ -18,13 +17,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <AuthWrapper>
+      <body className={inter.className} suppressHydrationWarning>
         <Theme>
-        <Navbar />
+          
+          <Navbar />
         <div className="px-5">{children}</div>
         </Theme>
-      </body>
+        </body>
+        </AuthWrapper>
     </html>
   );
 }
