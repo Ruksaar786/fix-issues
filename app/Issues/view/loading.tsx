@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Card } from '@radix-ui/themes'
 import React from 'react'
-import {Skeleton} from "../../../components"
+import Skeleton from 'react-loading-skeleton'
 const LoadingIssueDetails = () => {
   return (
     <Box as='div' className='space-y-4' >
