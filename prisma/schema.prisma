@@ -81,4 +81,3 @@ model VerificationToken {
 
   @@id([identifier, token])
 }
- 
